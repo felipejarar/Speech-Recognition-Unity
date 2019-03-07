@@ -56,8 +56,14 @@ public class Recognition : MonoBehaviour {
     private void initializeRecognizer()
     {
         // InitializeDictionary should be called first
+        if (m_KeyDictionary == null)
+        {
+            Debug.Log("Key Dictionary must be initialized first. \nInitializing Key Dictionary");
+            initializeDictionary();
+        }
+        
         string[] keywords = m_KeyDictionary.Keys.ToArray();
-        m_Recognizer = new KeywordRecognizer(keywords);
+        m_Recognizer = new KeywordRecognizer(keywords, m_ConfidenceLevel);
         m_Recognizer.OnPhraseRecognized += OnPhraseRecognized;
         m_Recognizer.Start();
     }
@@ -71,7 +77,6 @@ public class Recognition : MonoBehaviour {
         builder.AppendFormat("\tDuration: {0} seconds{1}", args.phraseDuration.TotalSeconds, Environment.NewLine);
         Debug.Log(builder.ToString());
         m_KeyDictionary[args.text].Invoke();
-
     }
 
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE grammar PUBLIC "-//W3C//DTD GRAMMAR 1.0//EN"
+                  "http://www.w3.org/TR/speech-grammar/grammar.dtd">
+
+<grammar xmlns="http://www.w3.org/2001/06/grammar"
+
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+        xsi:schemaLocation="http://www.w3.org/2001/06/grammar
+
+                            http://www.w3.org/TR/speech-grammar/grammar.xsd"
+
+        xml:lang="es"
+		tag-format="semantics/1.0"
+        version="1.0" mode="voice" root="main">
+  
+	 
+	<rule id="main">
+		<one-of>
+		  <item><ruleref uri="#wake_up_sentence" /><tag> out.wake_up=true; out.id="wake_up"</tag></item>
+		  <item><ruleref uri="#single_command_sentence" /></item>
+		</one-of>
+	</rule> 
+  
+    <rule id="wake_up_sentence" scope="public">
+		<one-of>
+			<item> ¿hola? </item>
+			<item> despierta </item>
+			<item> oye </item>
+		</one-of>
+	</rule> 
+	
+	<rule id="single_command_sentence" scope="public">
+		<one-of>
+		  <item><ruleref uri="#command_talk" /><tag> out.id="speak"</tag></item>
+		</one-of>
+	</rule> 
+
+	<rule id="command_talk" scope="public">
+		<one-of>
+			<item> habla </item>
+			<item> hablame </item>
+		</one-of>
+	</rule> 
+	
+	<rule id="command_stop_talking" scope="public">
+		<one-of>
+			<item> calla <tag> out.id="speak" </tag></item>
+			<item> callate <tag> out.id="speak" </tag></item>
+		</one-of>
+	</rule> 
+  
+</grammar>
+

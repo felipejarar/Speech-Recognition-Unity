@@ -216,6 +216,160 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126c73f5fa9ee354babf91901da662f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &487953833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 487953835}
+  - component: {fileID: 487953836}
+  - component: {fileID: 487953834}
+  m_Layer: 0
+  m_Name: Voice User Interface Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &487953834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 487953833}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1dc6b184adf34f449d49fa4a2e11ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wakeUpButtonsEnabled: 1
+  _wakeUpWordEnabled: 0
+  _onHoverEnabled: 0
+  _waitTimerLength: 2
+  _wakeUpButtons: 3201000020000000
+  _wakeUpWord: Yuyu
+  minimumConfidence: 1
+  topicConstraint: 2
+  m_Hypotheses: {fileID: 0}
+  m_Recognitions: {fileID: 0}
+  r_status: 0
+  r_autoSilenceTimeout: 0
+  r_initialSilenceTimeout: 0
+  isDictationRunning: 0
+  language: 
+  languageCode: 
+  _isAwake: 0
+  _waitTimer: 0
+  _wakeUpEnabled: 1
+  micConnected: 0
+  numMics: 0
+  currentMic: 0
+  microphones: []
+--- !u!4 &487953835
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 487953833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.292532, y: -2.0702426, z: 0.1640625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &487953836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 487953833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d033e7fa3b1ab240a4ac2848c29dcba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  r_gramarFile: test.xml
+  r_contextualGrammar:
+  - context_id: speaking
+    context_file: test2.xml
+  r_minimumConfidenceLevel: 2
+  r_wakeUpWordEnabled: 1
+  r_timeOutSeconds: 5
+  r_timeOutCounter: 0
+  r_grammarActions:
+  - id: wake_up
+    action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 286726946}
+          m_MethodName: invokeAwake
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    context_id: 
+  - id: speak
+    action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 286726946}
+          m_MethodName: invokeSpeak
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    context_id: speaking
+  - id: dance
+    action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 286726946}
+          m_MethodName: invokeDance
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    context_id: 
+  r_timeOutActions:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 286726946}
+        m_MethodName: invokeSleep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1266378881
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +444,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1266378881}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -332,7 +486,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1304521726}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4176306884abfba459b01b0364b8bedb, type: 3}
   m_Name: 
